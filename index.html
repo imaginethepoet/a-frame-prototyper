@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Mixed Reality Prototype Kit For A-frame</title>
+    <meta name="description" author="Preston McCauley" content="Mixed Reality Prototype Kit For A-frame">
+    <script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script>
+    <script src="//cdn.rawgit.com/donmccurdy/aframe-extras/v3.7.0/dist/aframe-extras.min.js"></script>
+
+
+
+  </head>
+  <body>
+    <a-scene>
+
+
+<!-- CHEAT SHEET 
+ 
+Rotation = x,y,z
+position = y,y,z
+
+
+CHEAT SHEET -->
+
+
+    <!-- Create A Set Of Assets To Use Images This Will Pre-cache Theses -->
+      <a-assets>
+
+
+        <a-asset-item id="ui-screen-1" src="img/curved-ui.png"></a-asset-item>
+
+        <a-asset-item id="vox-couch-obj" src="models/vox-couch.obj"></a-asset-item>
+        <a-asset-item id="vox-couch-mtl" src="models/vox-couch.mtl"></a-asset-item>
+
+
+
+        <a-asset-item id="end-obj" src="models/end.obj"></a-asset-item>
+        <a-asset-item id="end-mtl" src="models/end.mtl"></a-asset-item>
+
+
+        <a-asset-item id="sky" src="img/grid-sky-1.png"></a-asset-item>
+        <a-asset-item id="floor" src="img/black-floor.png"></a-asset-item>
+
+      </a-assets>
+
+
+
+  <!-- Experimenting Template File -->
+  <!-- Todo Add Sample Template File -->
+
+
+  <!-- Experimenting Template File -->
+
+
+
+    <!-- Let's Setup A Camera  & Cursor Average Height Locks Camera 
+    <a-cursor id="cursor">
+      <a-animation begin="click" easing="ease-in" attribute="scale"
+                   fill="backwards" from="0.1 0.1 0.1" to="1 1 1" dur="150"></a-animation>
+      <a-animation begin="cursor-fusing" easing="ease-in" attribute="scale"
+                   from="1 1 1" to="0.1 0.1 0.1" dur="1500"></a-animation>
+    </a-cursor>
+     Let's Setup A Camera  & Cursor Average Height Locks Camera -->
+
+
+
+    <!-- Let's Setup A SkyBox -->
+      <a-sky src="#sky"></a-sky>
+
+
+    <!-- Let's Setup Lighting Systems -->
+    <!-- Default lighting injected by A-Frame. -->
+<a-light
+  type="directional"
+  color="#FFF"
+  intensity="0.5"
+  position="-1 1 2">
+</a-light>
+<a-light
+  type="ambient"
+  color="#FFF">
+</a-light>
+
+
+    <!-- Let's Setup A Leap Motion With Vive Integration
+
+      <a-entity leap-hand="hand: left"></a-entity>
+      <a-entity leap-hand="hand: right"></a-entity>
+
+-->
+
+    <!-- Let's Setup A Floor -->
+
+      <a-entity position="0 0 0" static-body
+        geometry="primitive: plane; width: 10000; height: 10000;" rotation="-90 0 0"
+        material="src: #floor; repeat: 10000 10000; transparent: true; metalness:0.1; roughness: 0.2; sphericalEnvMap: #sky;"></a-entity>
+
+
+
+  <!-- Let's Place Entities Here Too Keep Track Of Them -->
+
+
+        <a-entity  obj-model="obj: #vox-couch-obj; mtl: #vox-couch-mtl" position="10 0 2" scale=".2 .2 .2" rotation="0 125 0"></a-entity>
+
+
+
+ <a-entity  obj-model="obj: #end-obj; mtl: #end-mtl" position="2 0 2" scale=".02 .02 .02" rotation="0 0 0"></a-entity>
+
+
+    <!-- Create A Curved UI System Placement -->
+
+    <a-curvedimage src="#ui-screen-1" position="0 0 -.5"  radius="5.7" theta-length="180" height="9" rotation="0 90 0" scale="1 1 1"></a-curvedimage>
+
+
+
+
+
+    </a-scene>
+  </body>
+</html>
